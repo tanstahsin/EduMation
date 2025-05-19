@@ -1,0 +1,29 @@
+﻿@model IEnumerable<EduMation.Models.Video>
+@{
+    ViewData["Title"] = "Search Results";
+}
+<h1>Search Results</h1>
+@if (!string.IsNullOrEmpty(ViewBag.Query))
+{
+    <p>Results for: <strong>@ViewBag.Query</strong></p>
+}
+@if (Model.Any())
+{
+    <div class="video-row d-flex flex-row flex-nowrap overflow-auto">
+        @foreach (var item in Model)
+        {
+            <div class="card m-2" style="min-width: 200px;">
+                <img src="@item.ThumbnailUrl" class="card-img-top" alt="@item.Title" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Genre</p>
+                    <a asp-controller="Video" asp-action="Watch" asp-route-id="@item.Id" class="btn btn-primary">Watch Now</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No videos found matching your search.</p>
+}

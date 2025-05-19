@@ -1,0 +1,38 @@
+﻿@model EduMation.Models.Video
+@{
+    ViewData["Title"] = "Watch Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>@Model.Title</h1>
+<div class="container">
+    <div class="card mb-4">
+        @if (!string.IsNullOrEmpty(Model.ThumbnailUrl))
+        {
+            <img src="@Model.ThumbnailUrl" class="card-img-top" alt="@Model.Title Thumbnail" style="max-height: 300px; object-fit: cover;" />
+        }
+        else
+        {
+            <img src="/Uploads/thumbnails/default.jpg" class="card-img-top" alt="Default Thumbnail" style="max-height: 300px; object-fit: cover;" />
+        }
+        <div class="card-body">
+            <p class="card-text" style="color: #D87A3A;">@Model.Description</p>
+            <p class="card-text">
+                <small class="text-muted" style="color: #28A745 !important;">@Model.Genre • Uploaded on @Model.UploadDate.ToString("MMM dd, yyyy")</small>
+            </p>
+            <video controls class="w-100" style="max-height: 400px;">
+                <source src="@Model.VideoUrl" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                var isFavorited = ViewBag.IsFavorited as bool? ?? false;
+                <form asp-action="@(isFavorited ? "RemoveFromFavorites" : "AddToFavorites")" asp-controller="Videos" method="post">
+                    <input type="hidden" name="videoId" value="@Model.Id" />
+                    <button type="submit" class="btn btn-primary">@(isFavorited ? "Remove from Favorites" : "Add to Favorites")</button>
+                </form>
+            }
+            <a href="@Url.Action("Index", "Videos")" class="btn btn-primary mt-3">Back to Videos</a>
+        </div>
+    </div>
+
+</div>

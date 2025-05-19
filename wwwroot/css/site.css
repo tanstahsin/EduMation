@@ -1,0 +1,119 @@
+/* Rustic Orange and Matte Black theme */
+body {
+    background-color: #1C2526; /* Matte Black */
+    color: #E8E8E8; /* Light gray for readability */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #E8E8E8;
+    font-weight: bold;
+}
+
+a {
+    color: #D94F00; /* Rustic Orange */
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #FF6F00; /* Lighter orange on hover */
+    }
+
+/* Navigation bar */
+.navbar {
+    background-color: #1C2526; /* Matte Black */
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    color: #D94F00 !important; /* Rustic Orange */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #E8E8E8 !important;
+    margin-right: 15px;
+}
+
+    .nav-link:hover {
+        color: #D94F00 !important;
+    }
+
+/* Container for content */
+.container {
+    margin-top: 80px; /* Space for fixed navbar */
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #D94F00; /* Rustic Orange */
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+    .btn-primary:hover {
+        background-color: #FF6F00; /* Lighter orange */
+    }
+
+.btn-secondary {
+    background-color: #4A4A4A; /* Dark gray */
+    border: none;
+}
+
+    .btn-secondary:hover {
+        background-color: #6A6A6A;
+    }
+
+/* Footer */
+footer {
+    background-color: #1C2526;
+    color: #A0A0A0;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Table styling */
+.table {
+    background-color: #2A2F30;
+    color: #E8E8E8;
+}
+
+    .table th, .table td {
+        border-color: #4A4A4A;
+    }
+
+.table-dark {
+    background-color: #2A2F30;
+}
+
+/* Form controls */
+.form-control {
+    background-color: #2A2F30;
+    color: #E8E8E8;
+    border-color: #4A4A4A;
+}
+
+    .form-control:focus {
+        background-color: #3A3F40;
+        border-color: #D94F00;
+        color: #E8E8E8;
+    }
+
+/* Alert styling */
+.alert-primary {
+    background-color: #D94F00;
+    color: #E8E8E8;
+    border-color: #FF6F00;
+}
